@@ -1,7 +1,8 @@
-const BASE_URL = 'http://localhost:3000/api';
+// const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'https://rental-backend-2l3f.onrender.com/api';
 
 const apiRequest = async (endpoint: string, method: string, body?: any) => {
-    try {
+  try {
     const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
     const token = userInfo.token;
 
@@ -22,7 +23,7 @@ const apiRequest = async (endpoint: string, method: string, body?: any) => {
       const errorData = await response.json();
       throw new Error(errorData.message || `Request failed with status ${response.status}`);
     }
-    
+
     return response.json();
   } catch (error) {
     console.error(`API request to ${endpoint} failed:`, error);
@@ -31,20 +32,20 @@ const apiRequest = async (endpoint: string, method: string, body?: any) => {
 };
 
 // --- Auth Functions ---
-export const registerUser = (userData: any) => 
+export const registerUser = (userData: any) =>
   apiRequest('/users/register', 'POST', userData);
 
-export const loginUser = (credentials: any) => 
+export const loginUser = (credentials: any) =>
   apiRequest('/users/login', 'POST', credentials);
 
 // --- Booking Functions ---
-export const createBooking = (bookingData: any) => 
+export const createBooking = (bookingData: any) =>
   apiRequest('/bookings', 'POST', bookingData);
 
-export const getBookings = () => 
+export const getBookings = () =>
   apiRequest('/bookings', 'GET');
 
-export const getBookingById = (id: string) => 
+export const getBookingById = (id: string) =>
   apiRequest(`/bookings/${id}`, 'GET');
 
 export const updateBookingStatus = (id: string, status: 'Confirmed' | 'Cancelled') =>
@@ -63,12 +64,12 @@ export const scheduleTechnician = (supportRequestId: string, visitData: { techni
   apiRequest(`/support-requests/${supportRequestId}/schedule-visit`, 'POST', visitData);
 // --- AI Support Function ---
 export const getAiSupport = (appliance: string, question: string) =>
-    apiRequest('/ai/support', 'POST', { appliance, question });
+  apiRequest('/ai/support', 'POST', { appliance, question });
 
-export const getAllProperties = () => 
+export const getAllProperties = () =>
   apiRequest('/properties', 'GET');
 
-export const getPropertyById = (id: string) => 
+export const getPropertyById = (id: string) =>
   apiRequest(`/properties/${id}`, 'GET');
 
 export const createProperty = (propertyData: any) =>
