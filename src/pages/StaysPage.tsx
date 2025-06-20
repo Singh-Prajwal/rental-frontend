@@ -2,7 +2,6 @@
 import React from 'react';
 import PropertyCard from '../components/PropertyCard';
 import { mockAllStays } from '../services/mockData';
-import Pagination from '../components/common/Pagination';
 import SearchFilterBar from '../components/search/SearchFilterBar'; // Import
 import FilterChips from '../components/search/FilterChips';     // Import
 

@@ -4,6 +4,7 @@ import type { Property } from '../../types/Property';
 
 const LocalGuide: React.FC<{ property: Property }> = ({ property }) => {
   // This data would be specific to the property's location
+  console.log(property)
   const recommendations = {
     restaurants: [
       { name: 'La Torta Gorda', note: 'Best tortas in the Mission.' },

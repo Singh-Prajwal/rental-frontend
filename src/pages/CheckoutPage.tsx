@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { mockAllStays } from '../services/mockData';
 import PriceDetails from '../components/checkout/PriceDetails';
 import PaymentForm from '../components/checkout/PaymentForm';

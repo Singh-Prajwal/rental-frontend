@@ -15,7 +15,7 @@ const PropertyForm: React.FC<PropertyFormProps> = ({
   isSaving,
 }) => {
   const [formData, setFormData] = useState<Partial<Property>>({
-    name: "",
+    title:"",
     description: "",
     location: "",
     pricePerNight: 100,
@@ -100,7 +100,7 @@ const PropertyForm: React.FC<PropertyFormProps> = ({
               <FormField
                 label="Property Name"
                 name="name"
-                value={formData.name}
+                value={formData.title}
               />
               <FormField
                 label="Location"
